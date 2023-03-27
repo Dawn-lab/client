@@ -1,6 +1,7 @@
 import { useContext, createContext, FC, ReactNode } from 'react';
 
 import { useAddress, useContract, useMetamask, useContractWrite } from '@thirdweb-dev/react';
+// import { ThirdwebSDK } from "@thirdweb-dev/sdk/evm";
 import { ethers } from 'ethers';
 
 interface StateInterface {
@@ -32,7 +33,7 @@ interface stateProps {
 export const StateContextProvider : FC<stateProps> = ({ children }) => {
 
     const con = useContract('0x86524A3f7f22E72924B69ff5e8E0a08746f82d4D');
-    const { contract } : any = useContract('0x86524A3f7f22E72924B69ff5e8E0a08746f82d4D');
+    const { contract, isLoading } : any = useContract('0x86524A3f7f22E72924B69ff5e8E0a08746f82d4D');
 
     console.log(con)
 
@@ -75,6 +76,7 @@ export const StateContextProvider : FC<stateProps> = ({ children }) => {
             pId: i
         }));
 
+        console.log(parsedCampaings)
         return parsedCampaings;
     }
 

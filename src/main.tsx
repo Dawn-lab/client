@@ -13,9 +13,12 @@ const activeChain = "ethereum";
 
 const container = document.getElementById("root");
 const root = createRoot(container!);
+
+
 root.render(
   <React.StrictMode>
-    <ThirdwebProvider desiredChainId={ChainId.Goerli}>
+    {/* <ThirdwebProvider desiredChainId={ChainId.Goerli}> */}
+    <ThirdwebProvider activeChain={"goerli"}>
       <Router>
         <StateContextProvider>
           <App />
